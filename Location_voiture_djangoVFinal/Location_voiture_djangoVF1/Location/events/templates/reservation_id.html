@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-PE7F0o+5R5smRwQ35Yr5vjOou5cBGvLX/eClUgPC0U6C2x6vlBNh7V0EzJ/Ap0Vuxb6HvDTX9WnC8BzAgwtLjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script><form class="d-flex mb-2" role="search" action="{% url 'search' %}">
+      <body style="background-image: url('/static/images/voiture1.jpg');">
+
+          <div class="cls" style="height: 300px;width: 500px;position: relative;left: 450px;background-color: #f45b02;box-shadow: 0px 0px 10px 13px #3a3938;border-radius: 2px 2px 2px 2px;top: 120px">
+      <!-- <img src='{{data.image.url}}' style="border-radius: 20px 20px 20px 20px; height: 100px; width: 170px;position: relative;left:117px;top:-60px"></img><br/> -->
+         <div style="margin-top: 90px;margin-right: 400px; width: 100%; ">
+            <span style="font-size: 24px; font-weight: bold; position: relative;left:170px;top:-50px;">user   : {{data.user}} </span><br/>
+            <span style="font-size: 18px; color: rgb(66, 61, 61);position: relative;left:80px;top:-40px">car   :   {{data.car}}</span><br/>
+            <span style="font-size: 18px; color: rgb(66, 61, 61);position: relative;left:80px;top:-7px">Date debut de reservation   :   {{data.reservation_date}}</span><br/>
+            <span style="font-size: 18px;position: relative;left:80px;top:-68px;color: rgb(66, 61, 61);">Date de retour   :      {{data.return_date}}</span><br/> 
+         </div>
+      </div>  
+
+      </body>
+ 
+      
+
+{% endblock %}

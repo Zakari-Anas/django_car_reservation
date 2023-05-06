@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-PE7F0o+5R5smRwQ35Yr5vjOou5cBGvLX/eClUgPC0U6C2x6vlBNh7V0EzJ/Ap0Vuxb6HvDTX9WnC8BzAgwtLjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script><form class="d-flex mb-2" role="search" action="{% url 'search' %}"></form>
+ <link rel="stylesheet" href="/static/css/aff.css">
+
+{% if user.is_authenticated %}
+    <form class="d-flex mb-2" role="search" action="{% url 'search_user' %}">
+      
+    <select id="filter" name="filter">
+        <option value="name">Name</option>
+        <option value="email">Email</option>
+        <option value="city">City</option>
+    </select>
+    <br>
+    
+    <input type="text" id="query" name="query">
+    <br>
+    <input type="submit" value="Search">
+
+    
+    <!-- <div  data-toggle="collapse" class="btn btn-primary bg-dark border-dark "  style="border-radius: 0px; margin-top: 5px; margin-right: 10px; width: 70px;" onclick="toggleButtons()">
+      Add 
+    <div id="button-group" style="display: none;">
+          <a href="/addcar" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add Car </a>
+          <a href="/reservation" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add Reservation</a>
+          <a href="/adduser" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add users</a>
+        </div>
+    </div> -->
+
+        
+
+<script>
+  function toggleButtons() {
+    var buttonGroup = document.getElementById("button-group");
+    if (buttonGroup.style.display === "none") {
+      buttonGroup.style.display = "block";
+    }else {
+      buttonGroup.style.display = "none";
+    }
+  }
+</script>
+
+ </form>
+ {% endif %}
+<table border="1" class="table">
+
+    <thead>
+    <th>name</th>
+    <th>email</th>
+    <th>city</th>
+
+    <th></th>
+    </thead>
+ {% for user in data %}
+       <tr style="height: 50px;" >
+           <td>{{user.name}}</td>
+           <td>{{user.email}}</td>
+           <td>{{user.city}}</td>
+           <td>
+                <a href="/deleteuser/{{user.id}}" class="btn btn-primary bg-danger">Delete</a>
+                <a href="/updateuser/{{user.id}}" class="btn btn-primary bg-success">Update</a>
+                <a href="/user/{{user.id}}" class="btn btn-primary bg-gradient">View</a>
+ 
+ 
+ 
+           </td>
+ 
+       </tr>
+ {%endfor%}
+ 
+ 
+ </table>
+ 
+ 
+ 
+ {% endblock %}

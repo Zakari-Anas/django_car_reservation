@@ -1,0 +1,60 @@
+.navbar navbar-expand-lg navbar-dark bg-dark{
+    color:#5D6D7E;
+}
+
+.esp{
+    margin-left: 200px;
+    margin-right: 20px;
+}
+.nav-link1{
+    color: rgb(239, 231, 231);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100px;
+    font-family: fangsong;
+    
+}
+.nav-link1:hover{
+    background-color: #D35400;
+    color: rgb(9, 9, 9);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 120px;
+
+}
+
+ 
+
+.nav-link{
+    width: 20px;
+}
+
+.cars{
+    font-size: 26px;
+    color: #D35400;
+    position: absolute;
+    top: 10px;
+    left: 120px;
+}
+.my-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23000' d='M112 184l144 144 144-144z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 30px;
+}
+
+/* Hide the default arrow */
+.my-select::-ms-expand {
+  display: none;
+}

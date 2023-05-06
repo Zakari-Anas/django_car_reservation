@@ -1,0 +1,81 @@
+
+
+
+.my-form {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: Arial;
+    position: relative;
+    left: 100px;
+    top:100px;
+}
+.my-form p {
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f8f3f3;
+    /* border: solid; */
+    
+}
+/* 
+.my-form input[type="text"], .my-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1.5px solid #060606;
+    position: relative;
+    left:20px;
+    color: rgb(236, 118, 8);
+    
+} */
+.my-form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1.5px solid #060606;
+    position: relative;
+    left: 20px;
+    color: rgb(236, 118, 8);
+}
+
+    .my-form button[type="submit"] {
+        background-color: white;
+        color: #f45b02;
+        border-radius: 4px;
+        padding: 10px 20px;
+        border: none;
+        position: relative;
+        left: 220px;
+        width: 200px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .my-form button[type="submit"]:hover {
+        background-color: #f45b02;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(244, 91, 2, 0.2);
+        color: #fff;
+    }
+    .my-form button[type="submit"]:active:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,0.5);
+        border-top-color: #fff;
+        animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+

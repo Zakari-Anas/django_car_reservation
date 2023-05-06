@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-PE7F0o+5R5smRwQ35Yr5vjOou5cBGvLX/eClUgPC0U6C2x6vlBNh7V0EzJ/Ap0Vuxb6HvDTX9WnC8BzAgwtLjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script><form class="d-flex mb-2" role="search" action="{% url 'search' %}"></form>
+ <link rel="stylesheet" href="/static/css/aff.css">
+
+ <body style="background-image: url('/static/images/voiture1.jpg');">
+
+    <form class="d-flex mb-2" role="search" action="{% url 'searchreservations' %}">
+      
+   <!-- <input class="form-control me-sm-0" style="border-radius: 0px; margin-top: 5px; margin-right: 10px;" type="search" placeholder="Search" aria-label="Search" name="carname">
+   <button class="btn btn-primary bg-gradient"  style="border-radius: 0px; margin-top: 5px; margin-right: 10px; width: 70px;"  type="submit">Search</button> -->
+  <style>select {
+   border-radius: 4px;
+                    margin-top: 5px;
+                    margin-right: 10px;
+                    width: 150px;
+                    background-color: rgb(179, 92, 26);
+                    color: #fff;
+                    border: none;
+                    box-shadow: none;
+                    font-size: 16px;
+                    font-family: Arial;
+                    height: 40px;
+                    padding: 5px;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    cursor: pointer;
+                    text-indent: 0.01px;
+                    text-overflow: '';
+                    position: relative;
+                    left: 40px;
+
+  }
+  
+  select:hover, select:focus {
+    outline: none;
+                    box-shadow: 0 0 0 2px rgba(24, 196, 90, 0.5);
+  }
+  </style>
+    <select id="filter" name="filter">
+        <option value="car">Car</option>
+        <option value="user">User</option>
+        <option value="date">Date</option>
+    </select>
+    <br>
+   <style>input[type="text"]:hover, input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(24, 196, 90, 0.5);
+}
+</style>
+    <input type="text" id="query" name="query" style="padding: 10px; border: 2px solid #fff ;background-color: #f7750c;color: #fff; border-radius: 4px; font-size: 16px; font-family: Arial; width: 250px; margin-left: 90px;">
+
+    <br>
+    <label for="start_date" style="position: relative;left: 70px;top: 10px;color: black;">Start Date:</label>
+    <input type="date" id="start_date" name="start_date" style="position: relative;left: 90px;">
+    <br>
+    <label for="end_date" style="position: relative;left: 105px;top:10px;color:black">End Date:</label>
+    <input type="date" id="end_date" name="end_date" style="position: relative;left: 130px;">
+    <br>
+    <input type="submit" value="Search" style="position: relative;left: 200px;">
+
+    <!-- <div  data-toggle="collapse" class="btn btn-primary bg-dark border-dark "  style="border-radius: 0px; margin-top: 5px; margin-right: 10px; width: 70px;" onclick="toggleButtons()">
+      Add 
+    <div id="button-group" style="display: none;">
+          <a href="/addcar" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add Car </a>
+          <a href="/reservation" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add Reservation</a>
+          <a href="/adduser" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add users</a>
+        </div>
+    </div> -->
+
+        
+<!-- 
+<script>
+  function toggleButtons() {
+    var buttonGroup = document.getElementById("button-group");
+    if (buttonGroup.style.display === "none") {
+      buttonGroup.style.display = "block";
+    }else {
+      buttonGroup.style.display = "none";
+    }
+  }
+</script> -->
+
+ </form>
+ <table class="table table-bordered table-hover" style="width: 70%;position: relative;left: 140px;top:50px;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" >Car</th>
+      <th scope="col">User</th>
+      <th scope="col">Reservation Date</th>
+      <th scope="col">End date</th> 
+      <th scope="col"></th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for res in data %}
+    <tr style="height: 50px;">
+      <td>{{res.car}}</td>
+      <td>{{res.user}}</td>
+      <td>{{res.reservation_date}}</td>
+      <td>{{res.return_date}}</td>
+      <td>
+        <a href="/deletereservation/{{res.id}}" class="btn btn-danger">Delete</a>
+        <a href="/updatereservation/{{res.id}}" class="btn btn-success">Update</a>
+        <a href="/reservation/{{res.id}}" class="btn btn-primary">View</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+ 
+ </body>
+ 
+ {% endblock %}

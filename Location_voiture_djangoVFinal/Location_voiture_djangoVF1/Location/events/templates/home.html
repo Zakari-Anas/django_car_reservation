@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-PE7F0o+5R5smRwQ35Yr5vjOou5cBGvLX/eClUgPC0U6C2x6vlBNh7V0EzJ/Ap0Vuxb6HvDTX9WnC8BzAgwtLjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="/static/css/aff.css">
+
+{% if user.is_authenticated %}
+    <form class="d-flex mb-2" role="search" action="{% url 'search' %}">
+      
+   <!-- <input class="form-control me-sm-0" id="car" style="border-radius: 0px; margin-top: 5px; margin-right: 10px;" type="search" placeholder="Search" aria-label="Search" name="car">
+   <button class="btn btn-primary bg-gradient"  style="border-radius: 0px; margin-top: 5px; margin-right: 10px; width: 70px;"  type="submit" >Search</button> --> 
+
+   
+    <select id="filter" name="filter">
+        <option value="name">Name</option>
+        <option value="model">Model</option>
+        <option value="price">Price</option>
+        <option value="description">Description</option>
+        <option value="distance">Distance</option>
+    </select>
+    <br>
+    
+    <input type="text" id="query" placeholder="Search" name="query">
+    <br>
+    <input type="submit" value="Search">
+
+
+ 
+      <!-- Add 
+    <div id="button-group" style="display: none;">
+          <a href="/addcar" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add Car </a>
+          <a href="/reservation" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add Reservation</a>
+          <a href="/adduser" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add users</a>
+        </div> -->
+    </div>
+
+        
+
+<!-- <script>
+  function toggleButtons() {
+    var buttonGroup = document.getElementById("button-group");
+    if (buttonGroup.style.display === "none") {
+      buttonGroup.style.display = "block";
+    }else {
+      buttonGroup.style.display = "none";
+    }
+  }
+</script> -->
+
+ </form>
+
+
+
+<table border="1"  class="table">
+
+   <thead>
+   <th>Name</th>
+   <th>Model</th>
+   <th>Price</th>
+   <th>Description</th>
+   <th>Distance</th>
+   <th></th>
+   </thead>
+{% for car in data %}
+      <tr style="height: 50px;" >
+          <td>{{car.name}}</td>
+          <td>{{car.model}}</td>
+          <td>{{car.price}} $</td>
+          <td>{{car.description}}</td>
+          <td>{{car.distance}} KM</td>
+          <td>
+               <a href="delete/{{car.id}}" class="btn btn-primary bg-danger">Delete</a>
+               <a href="/update/{{car.id}}" class="btn btn-primary bg-success">Update</a>
+               <a href="/car/{{car.id}}" class="btn btn-primary bg-gradient">View</a>
+
+
+
+          </td>
+
+      </tr>
+{%endfor%}
+
+
+</table>
+
+  {% endif %}
+
+
+{% endblock %}

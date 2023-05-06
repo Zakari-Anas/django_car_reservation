@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-PE7F0o+5R5smRwQ35Yr5vjOou5cBGvLX/eClUgPC0U6C2x6vlBNh7V0EzJ/Ap0Vuxb6HvDTX9WnC8BzAgwtLjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-cwAZ5XbUGd3sppQb58lSYnSwga5R1V4qm4UO4rQ+dbPvJ38p/zrDuiX/F50lP1nH+9O2Qn1S7E3q4qFZ5m3/+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/static/css/navbar.css">
+  </head>
+  <body style="background-image: url('/static/images/voiture1.jpg');">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+      <div class="container-fluid">
+        <p class="cars">CaRs</p>
+        <!-- <img src="https://c8.alamy.com/comp/2G16250/car-logo-2G16250.jpg" style=" width: 60px; height: 40px; border-radius: 30px; margin-right: 20px; cursor: pointer;"/> -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+{% if user.is_authenticated %}
+            <li class="esp">
+              <a class="" href=""></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link1" href="/">Cars</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href=""></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link1" href="/users">Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=""></a>
+            </li>
+
+            <li>
+              <a class="nav-link1" href="/reservations">Reservations</a>
+            </li>
+
+          <li class="nav-item" style="cursor: pointer;border-radius: 0px;left:70px; position: relative; width: 70px;">
+              <a class="nav-link1" href="{% url 'logout' %}">Logout</a>
+          </li>
+{% else %}
+            
+<li class="nav-item login-link" style="position: relative;left: 730px;">
+  <a class="nav-link1" href="/login">Login</a>
+</li>
+<!-- <li class="nav-item register-link" style="position: relative;left: 890px;">
+  <a class="nav-link1" href="#">Register</a>
+</li> -->
+
+{% endif %}
+{% if user.is_authenticated %}
+            <li>
+              
+              <!-- <button class="btn btn-primary bg-gradient"  style="border-radius: 0px; margin-top: 5px;left:130px;position: relative; width: 70px;background-color: #D35400;color: rgb(244, 240, 247);"  type="submit">Search</button> -->
+               <!-- <div   data-toggle="collapse" class="btn btn-primary bg-dark border-dark " style="cursor: pointer;border-radius: 0px; margin-top: 5px;left:100px; position: relative; width: 70px;color:#D35400;" onclick="toggleButtons()">
+                 <a >Add</a> 
+               <div id="button-group" style="display: none;">
+                     <a href="/addcar" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add Car </a>
+                     <a href="/reservation" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add Reservation</a>
+                     <a href="/adduser" class="btn btn-primary bg-gradient" style="margin-right: 10px; width: 70px;">Add users</a>
+                   </div>
+               </div> -->
+               <style>
+                .my-btn {
+                    border-radius: 0px;
+                    margin-top: 5px;
+                    margin-right: 20px;
+                    width: 70px;
+                    background-color: #010305;
+                    color: #fff;
+                    border: none;
+                    box-shadow: none;
+                }
+                
+                /* .my-btn:hover {
+                    background-color: #f48107;
+                    color: #fff;
+                } */
+                
+                .my-select {
+                    border-radius: 4px;
+                    margin-top: 5px;
+                    margin-right: 10px;
+                    width: 150px;
+                    background-color: rgb(179, 92, 26);
+                    color: #fff;
+                    border: none;
+                    box-shadow: none;
+                    font-size: 16px;
+                    font-family: Arial;
+                    height: 40px;
+                    padding: 5px;
+                }
+                
+                .my-select:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 2px rgba(24, 196, 90, 0.5);
+                }
+            </style>
+            
+            <div data-toggle="collapse" class="btn my-btn" style="position: relative; left: 230px;" onclick="toggleButtons()">
+                <select id="f" name="f" onchange="window.location.href = this.value;" class="my-select">
+                    <option value="" disabled selected>select</option>
+                    <option value="/reservation">Reservation</option>
+                    <option value="/addcar">Add Car</option>
+                    <option value="/adduser">Add user</option>
+                </select>
+            </div>
+            
+               <!-- <input class="form-control me-sm-0" style="border-radius: 0px; margin-top: -38px;position: relative; left: 240px; width: 140px;" type="search" placeholder="Search" aria-label="Search" name="carname"> -->
+               <script>
+                function toggleButtons() {
+                  var buttonGroup = document.getElementById("button-group");
+                  if (buttonGroup.style.display === "none") {
+                    buttonGroup.style.display = "block";
+                  }else {
+                    buttonGroup.style.display = "none";
+                  }
+                }
+              </script>
+            </li>
+{% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-8RkU84wxMd/HjTp/FJnI6q8mIT2Q1fbZH+Xy0kPqj3zPUh2chHwcnCZo5pLE0gJhHKcPFrV7XuLRLhJtGjK72g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+</html>

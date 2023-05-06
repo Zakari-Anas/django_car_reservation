@@ -1,0 +1,92 @@
+.boutton{
+    background-color: black;
+    color: rgba(177, 18, 18, 0.637);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+}
+
+/* .container{
+    background-color: rgb(185, 29, 29); border-radius: 20px; width: 50%;
+} */
+
+
+
+/* .container{
+    background-image: url("static/css/voiture.jpg");
+} */
+
+.form-group{
+    /* background-color: rgba(6, 5, 5, 0.637); */
+    /* border-radius: 20px; */
+    width: 15%;
+    margin-left: 15%;
+    margin-top: 10%;
+    padding: 10px;
+}
+.form-control{
+    width: 15%;
+    margin-left: 25%;
+    margin-top: 10%;
+    padding: 10px;
+    background-color: rgba(6, 5, 5, 0.637);
+}
+div.row {
+    margin-top: 20px;
+}
+
+.form-control1{
+   color: aliceblue;
+   left: -40px;
+   position: relative;
+   font-size: 16px;
+   text-align: center;  
+}
+
+div.row button {
+    margin-top: 10px;
+    background-color: rgb(179, 92, 26);
+    color: aliceblue;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    left: 230px;
+    position: relative;
+}
+div.row button:hover {
+    background-color: rgb(241, 180, 110);
+  
+}
+input[type="text"] {
+    width: 700%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    left: 120%;
+    margin-bottom: 20px;
+    top: -20px;
+  }
+  
+  /* Style pour les champs de mot de passe */
+  input[type="password"] {
+    width: 700%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    left: 120%;
+    margin-bottom: 20px;
+    top: -20px;
+  }

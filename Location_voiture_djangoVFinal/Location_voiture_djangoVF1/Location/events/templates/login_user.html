@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-PE7F0o+5R5smRwQ35Yr5vjOou5cBGvLX/eClUgPC0U6C2x6vlBNh7V0EzJ/Ap0Vuxb6HvDTX9WnC8BzAgwtLjg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<body style="background-image: url('/static/images/voiture1.jpg');">
+    <div class="d-flex" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                           <form class="form-group form-control1" method=POST >
+                                    {% csrf_token %}
+                                    {{form.as_p }}  
+
+                                    <button type="submit" class="btn btn-primary bg-gradient"> Login</button>
+                            </form> 
+                    </div>
+                </div>
+            </div>
+    </div>
+
+{% endblock %}
