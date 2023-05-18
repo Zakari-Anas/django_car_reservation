@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="/static/css/navbar.css">
   </head>
-  <body style="background-image: url('/static/images/voiture1.jpg');">
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div class="container-fluid">
         <p class="cars">CaRs</p>
@@ -40,17 +40,23 @@
             </li>
 
           <li class="nav-item" style="cursor: pointer;border-radius: 0px;left:70px; position: relative; width: 70px;">
-              <a class="nav-link1" href="{% url 'logout' %}">Logout</a>
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
           </li>
 {% else %}
-            
-<li class="nav-item login-link" style="position: relative;left: 730px;">
-  <a class="nav-link1" href="/login">Login</a>
-</li>
-<!-- <li class="nav-item register-link" style="position: relative;left: 890px;">
-  <a class="nav-link1" href="#">Register</a>
-</li> -->
+            <li class="nav-item">
+              <a class="nav-link" href=""></a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link1" href="/login" style="cursor: pointer;border-radius: 0px;left:950px; position: relative; width: 70px;">Login</a>
+            </li>
 
+
+            <li class="nav-item">
+              <a class="nav-link" href=""></a>
+            </li>
+            <li class="nav-item" style="left:80px;">
+              <a class="nav-link1" href="/register_user" style="cursor: pointer;border-radius: 0px;left:950px; position: relative; width: 70px;">Register</a>
+            </li>
 {% endif %}
 {% if user.is_authenticated %}
             <li>

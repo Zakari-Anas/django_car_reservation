@@ -27,6 +27,7 @@ urlpatterns = [
     path('updatereservation/<id>/', update_reservation, name='update_reservation'),
     path('searchuser/', research_user, name='search_user'),
     path('logout/', logout_view, name='logout'),
+    path('register_user/', register_user, name='register_user')
 ]
 
 if settings.DEBUG:
