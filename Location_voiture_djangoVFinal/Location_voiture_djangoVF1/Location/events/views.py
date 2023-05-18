@@ -10,7 +10,8 @@ from .forms import LoginForm
 from .forms import ReservationForm
 from .forms import adduserForm
 from .forms import updateuserForm
-
+from .forms import RegistrationForm
+from events import forms
 
 
 
@@ -117,7 +118,7 @@ def reserve_car(request):
 
 
         if request.method == 'POST':
-                form = ReservationForm(request.POST)
+                form = forms.ReservationForm(request.POST)
                 if form.is_valid():
                         selected_car = form.cleaned_data['car']
                         selected_user = form.cleaned_data['user']
@@ -236,3 +237,16 @@ def logout_view(request):
     return redirect('home')  # Redirect to the desired page after logout
 
 
+#add signUp
+def register_user(request):
+    if request.method == "GET":
+        form2 = RegistrationForm(request.GET)
+        if form2.is_valid():
+            form2.save()
+            HttpResponse("data saved")
+            return redirect('login')
+    else:
+        form2 = RegistrationForm()
+    return render(request, 'register_user.html', {
+            'form_data' : form2,
+        })
